@@ -1,0 +1,16 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+
+left to right direction
+
+title Diagrama UML - Parcial 1
+
+Person(pagina, "Pagina Web", "Webapp")
+System(queue_consumer, "Queue consumer", "Cola que consume mensajes")
+System_Ext(backend, "Backend", "Incluye la cola y la base de datos")
+
+Rel(queue_consumer, pagina, "Muestra mensajes")
+Rel(backend, queue_consumer, "Actualiza cola")
+Rel(pagina, backend, "Realiza solicitudes")
+
+@enduml
